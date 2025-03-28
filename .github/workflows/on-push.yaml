@@ -13,7 +13,7 @@ jobs:
 
     - name: Test Local Action
       id: test-action
-      uses: lars1974/gh-action-version-releasere@main  # Commit with the `v1` tag
+      uses: lars1974/gh-action-version-releaser@main  # Commit with the `v1` tag
       with:
         milliseconds: 1000
 
