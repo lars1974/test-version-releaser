@@ -16,6 +16,7 @@ jobs:
       uses: lars1974/gh-action-version-releaser@main  # Commit with the `v1` tag
       with:
         milliseconds: 1000
+        github-token: ${ secrets.GITHUB_TOKEN }
 
     - name: Print Output
       id: output
