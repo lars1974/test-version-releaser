@@ -1,0 +1,26 @@
+name: Update branch on merge to main
+
+on:
+  push:
+    branches:
+      - main
+
+env:
+  TARGET_BRANCH: tst  # <--- Ændr denne til din ønskede branch
+
+jobs:
+  update-branch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout main branch
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Merge main into ${{ env.TARGET_BRANCH }}
+        run: |
+          git config --global user.name "github-actions"
+          git config --global user.email "github-actions@github.com"
+          git checkout $TARGET_BRANCH
+          git merge main --no-edit
+          git push origin $TARGET_BRANCH
